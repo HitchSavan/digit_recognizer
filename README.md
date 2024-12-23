@@ -1,15 +1,14 @@
-Simple Digit Recognition OCR in OpenCV Python
+# Simple Digit Recognition OCR in OpenCV Python
+
 =============================================
 
 This code is originally based on Abid Rahman K's answer in [Simple Digit Recognition OCR in OpenCV-Python](http://stackoverflow.com/questions/9413216/simple-digit-recognition-ocr-in-opencv-python/9620295).
 
-Several tiny modification has been made to adapt OpenCV's new API.
+Forked and modified from [eyanq/sdr](https://github.com/eyanq/sdr).
 
-Hope it helps for OpenCV newbies.
+## Progress
 
-
-### Progress
-Run `train.py`, label the number surrounded with red rectangle **manually**. The labeled result will seems like 
+Run `train.py`, press corresponding key to label the number surrounded with blue rectangle. The labeled result will seems like
 
 ![Train Result](/data/train_result.png)
 
@@ -23,19 +22,15 @@ Recognized Digits
 
 ![Recognized Digits](/data/out.png)
 
+## Development Environment Info
 
-
-
-
-
-### Development Environment Info
 ```python
 >>> sys.version
-'2.7.10 |Anaconda 2.3.0 (64-bit)| (default, May 28 2015, 16:44:52) [MSC v.1500 64 bit (AMD64)]'
+'3.8.10 (tags/v3.8.10:3d8993a, May  3 2021, 11:48:03) [MSC v.1928 64 bit (AMD64)]'
 
 >>> numpy.__version__
-'1.9.2'
+'1.24.4'
 
 >>> cv2.__version__
-'3.0.0'
+'4.10.0'
 ```
