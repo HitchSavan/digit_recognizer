@@ -18,8 +18,7 @@ def detect_symbols(im, symbols_height_threshold=10):
 
     out = np.zeros(im.shape, np.uint8)
     gray = cv2.cvtColor(im, cv2.COLOR_BGR2GRAY)
-    gray = cv2.bitwise_not(gray)
-    thresh = cv2.adaptiveThreshold(gray, 255, 1, 1, 11, 2)
+    thresh = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 15, 2)
 
     contours, hierarchy = cv2.findContours(thresh, cv2.RETR_LIST, cv2.CHAIN_APPROX_SIMPLE)
     symbol_sequence_result = ''
@@ -35,7 +34,7 @@ def detect_symbols(im, symbols_height_threshold=10):
             roismall = np.float32(roismall)
             retval, results, neigh_resp, dists = model.findNearest(roismall, k=1)
             string = str(int((results[0][0])))
-            symbols_positions[(y, x)] = string
+            symbols_positions[(x, y)] = string
             cv2.putText(out, string, (x, y + h), 0, 0.5, (0, 255, 0))
 
     for pos in sorted(symbols_positions.keys()):
